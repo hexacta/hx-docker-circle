@@ -1,14 +1,11 @@
 machine:
+  timezone: America/Los_Angeles
   services:
     - docker
-  timezone:
-    - America/Los_Angeles
-checkout:
-  post:
-    - pip install -H requirements.txt
 dependencies:
   override:
     - docker info
+    - pip install -H requirements.txt
 test:
   override:
     - python app/test.py
