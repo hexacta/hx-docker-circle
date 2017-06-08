@@ -5,10 +5,10 @@ machine:
 dependencies:
   override:
     - docker info
-    - pip install -H hx-docker-circle/requirements.txt
+    - pip install /hx-docker-circle/requirements.txt
 test:
   override:
-    - python hx-docker-circle/app/test.py
+    - python /hx-docker-circle/app/test.py
 general:
   branches:
     only:
