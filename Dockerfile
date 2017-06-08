@@ -27,7 +27,8 @@ RUN chown -R www-data:www-data /var/log
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/flask.conf /etc/nginx/sites-enabled/flask.conf
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-RUN pip install -r /var/www/requirements.txt
+COPY requirements.txt /tmp/
+RUN pip install -r /tmp/requirements.txt
 
 # run
 CMD ["/usr/bin/supervisord"]
