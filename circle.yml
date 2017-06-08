@@ -10,7 +10,7 @@ dependencies:
     - docker info
 test:
   override:
-    python app/test.py
+    - python app/test.py
 general:
   branches:
     only:
