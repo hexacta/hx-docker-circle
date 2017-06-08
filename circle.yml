@@ -1,0 +1,25 @@
+machine:
+  services:
+    - docker
+  timezone:
+    America/Los_Angeles
+  python:
+    version: 2.7.6
+dependencies:
+  override:
+    - docker info
+test:
+  override:
+    python app/test.py
+general:
+  branches:
+    only:
+      - master
+      - develop
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker build --rm=false -t faustocarrera/hx-docker-circle .
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push faustocarrera/hx-docker-circle
