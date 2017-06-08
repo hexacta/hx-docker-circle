@@ -8,9 +8,6 @@ machine:
 dependencies:
   override:
     - docker info
-test:
-  override:
-    python app/test.py
 general:
   branches:
     only:
